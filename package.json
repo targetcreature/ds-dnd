@@ -1,0 +1,15 @@
+{
+  "name": "dnd-update",
+  "version": "1.0.0",
+  "description": "dead simple drag/drop for nextjs, using `framer-motion`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next-transpile-modules": "^3.3.0"
+  }
+}
