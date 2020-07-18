@@ -1,5 +1,5 @@
 {
-  "name": "dnd-update",
+  "name": "next-dnd",
   "version": "1.0.0",
   "description": "dead simple drag/drop for nextjs, using `framer-motion`",
   "main": "index.js",
