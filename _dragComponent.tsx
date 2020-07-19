@@ -52,17 +52,16 @@ export const _dragComponent: React.FC<Props> = ({
             }}
 
             onDragStart={() => {
+                // clearHover()
                 setDrag(dragId)
-                onDrag && onDrag()
+                onDrag()
                 setZ(888)
             }}
 
             onDragEnd={() => {
+                setZ("initial")
                 onDrop && onDrop(dropData)
-                setTimeout(() => {
-                    setZ("initial")
-                    clearDrag()
-                }, returnDelay)
+                clearDrag()
             }}
 
             {...motionProps}
