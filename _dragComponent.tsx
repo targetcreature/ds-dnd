@@ -11,7 +11,7 @@ type Props = {
     className?: string
     dragMomentum?: boolean
     motionProps?: {}
-    zDelay?: number
+    returnDelay?: number
 }
 
 export const _dragComponent: React.FC<Props> = ({
@@ -22,7 +22,7 @@ export const _dragComponent: React.FC<Props> = ({
     onDrag,
     onDrop,
     onHover,
-    zDelay = 0,
+    returnDelay = 0,
     children
 }) => {
 
@@ -53,16 +53,16 @@ export const _dragComponent: React.FC<Props> = ({
 
             onDragStart={() => {
                 setDrag(dragId)
-                setZ(888)
                 onDrag && onDrag()
+                setZ(888)
             }}
 
             onDragEnd={() => {
                 onDrop && onDrop(dropData)
-                clearDrag()
                 setTimeout(() => {
                     setZ("initial")
-                }, zDelay)
+                    clearDrag()
+                }, returnDelay)
             }}
 
             {...motionProps}
