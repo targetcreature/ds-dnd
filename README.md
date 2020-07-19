@@ -22,7 +22,6 @@ import {DNDProvider, Draggable, Drop} from "next-dnd"
     onDrag?={() => console.log("dragging")}
     onHover?={(dropId) => console.log(dropId)}
     onDrop?={(dropId) => console.log(dropId || "no drop target")}
-    zDelay?={200} /* set delay when returning z-index to initial */
     {
       ...motionProps
     }

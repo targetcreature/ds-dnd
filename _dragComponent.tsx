@@ -52,7 +52,7 @@ export const _dragComponent: React.FC<Props> = ({
             }}
 
             onDragStart={() => {
-                // clearHover()
+                clearHover()
                 setDrag(dragId)
                 onDrag()
                 setZ(888)
