@@ -1,4 +1,4 @@
-import { motion, useMotionValue } from "framer-motion"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { _useDrag } from "./_useDrag"
 import { _IProps } from "./__init"
@@ -11,6 +11,7 @@ type Props = {
     className?: string
     dragMomentum?: boolean
     motionProps?: {}
+    zDelay?: number
 }
 
 export const _dragComponent: React.FC<Props> = ({
@@ -18,24 +19,25 @@ export const _dragComponent: React.FC<Props> = ({
     className = "",
     dragMomentum = false,
     motionProps = {},
-    onDrag = () => null,
-    onDrop = () => null,
-    onHover = () => null,
+    onDrag,
+    onDrop,
+    onHover,
+    zDelay = 0,
     children
 }) => {
 
     const { dragData, dropData, setDrag, clearDrag, clearHover } = _useDrag()
 
     useEffect(() => {
-        if (dragId === dragData) {
-            if (dropData) {
-                onHover(dropData)
+        if (onHover) {
+            if (dragId === dragData) {
+                if (dropData) {
+                    onHover(dropData)
+                }
             }
         }
     }, [dropData, dragData])
 
-    const x = useMotionValue(0)
-    const y = useMotionValue(0)
 
     const [zIndex, setZ] = useState<number | "initial">("initial")
 
@@ -46,24 +48,21 @@ export const _dragComponent: React.FC<Props> = ({
             dragMomentum={dragMomentum}
             style={{
                 position: "relative",
-                x: 0,
-                y: 0,
                 zIndex
             }}
 
             onDragStart={() => {
-                clearHover()
                 setDrag(dragId)
-                onDrag()
                 setZ(888)
+                onDrag && onDrag()
             }}
 
             onDragEnd={() => {
-                setZ("initial")
                 onDrop && onDrop(dropData)
                 clearDrag()
-                x.set(0)
-                y.set(0)
+                setTimeout(() => {
+                    setZ("initial")
+                }, zDelay)
             }}
 
             {...motionProps}
