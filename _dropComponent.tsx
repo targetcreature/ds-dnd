@@ -4,11 +4,18 @@ import { _IProps } from "./__init"
 type Props = {
     dropId: _IProps["dropData"]
     className?: string
+    disabled?: boolean
     onEnter?: (cb: (data: _IProps["dragData"]) => void) => void
     onExit?: (cb: (data: _IProps["dragData"]) => void) => void
 }
 
-export const _dropComponent: React.FC<Props> = ({ dropId, className = "", onEnter, onExit }) => {
+export const _dropComponent: React.FC<Props> = ({
+    dropId,
+    className = "",
+    disabled = false,
+    onEnter,
+    onExit
+}) => {
 
     const { dragData, setHover, clearHover } = _useDrag()
 
@@ -21,7 +28,7 @@ export const _dropComponent: React.FC<Props> = ({ dropId, className = "", onEnte
                 left: 0,
                 right: 0,
                 bottom: 0,
-                display: dragData ? "initial" : "none",
+                display: dragData && !disabled ? "initial" : "none",
                 zIndex: 999
             }}
             onMouseEnter={() => {

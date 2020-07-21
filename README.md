@@ -19,6 +19,7 @@ import {DNDProvider, Draggable, Drop} from "next-dnd"
   <Draggable
     dragId="box"
     className?="box"
+    disabled?={false}
     onDrag?={() => console.log("dragging")}
     onHover?={(dropId) => console.log(dropId)}
     onDrop?={(dropId) => console.log(dropId || "no drop target")}
@@ -33,6 +34,8 @@ import {DNDProvider, Draggable, Drop} from "next-dnd"
     Target
     <Drop /* fills container */
       dropId="target"
+      className?="target"
+      disabled?={false}
       onEnter?={(dragId) => console.log(dragId)}
       onExit?={() => console.log("exiting")}
     />

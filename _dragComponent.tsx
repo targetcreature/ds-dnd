@@ -9,6 +9,7 @@ type Props = {
     onDrop?: (cb: (data: _IProps["dropData"]) => void) => void
     onHover?: (cb: (data: _IProps["dropData"]) => void) => void
     className?: string
+    disabled?: boolean
     dragMomentum?: boolean
     motionProps?: {}
     returnDelay?: number
@@ -17,12 +18,12 @@ type Props = {
 export const _dragComponent: React.FC<Props> = ({
     dragId,
     className = "",
+    disabled = false,
     dragMomentum = false,
     motionProps = {},
     onDrag,
     onDrop,
     onHover,
-    returnDelay = 0,
     children
 }) => {
 
@@ -44,7 +45,7 @@ export const _dragComponent: React.FC<Props> = ({
     return (
         <motion.div
             className={className}
-            drag
+            drag={!disabled}
             dragMomentum={dragMomentum}
             style={{
                 position: "relative",

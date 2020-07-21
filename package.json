@@ -1,6 +1,6 @@
 {
   "name": "next-dnd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dead simple drag/drop for nextjs, using `framer-motion`",
   "main": "index.js",
   "scripts": {
