@@ -17,6 +17,8 @@ export const _dropComponent: React.FC<Props> = ({
     onExit
 }) => {
 
+    if (disabled) return null
+
     const { dragData, setHover, clearHover } = _useDrag()
 
     return (
