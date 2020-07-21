@@ -10,6 +10,7 @@ type Props = {
     onHover?: (cb: (data: _IProps["dropData"]) => void) => void
     className?: string
     disabled?: boolean
+    zIndex?: string | number
     dragMomentum?: boolean
     motionProps?: {}
     returnDelay?: number
@@ -19,6 +20,7 @@ export const _dragComponent: React.FC<Props> = ({
     dragId,
     className = "",
     disabled = false,
+    zIndex = "initial",
     dragMomentum = false,
     motionProps = {},
     onDrag,
@@ -40,7 +42,7 @@ export const _dragComponent: React.FC<Props> = ({
     }, [dropData, dragData])
 
 
-    const [zIndex, setZ] = useState<number | "initial">("initial")
+    const [z, setZ] = useState<Props["zIndex"]>(zIndex)
 
     return (
         <motion.div
@@ -49,7 +51,7 @@ export const _dragComponent: React.FC<Props> = ({
             dragMomentum={dragMomentum}
             style={{
                 position: "relative",
-                zIndex
+                zIndex: z
             }}
 
             onDragStart={() => {
@@ -60,7 +62,7 @@ export const _dragComponent: React.FC<Props> = ({
             }}
 
             onDragEnd={() => {
-                setZ("initial")
+                setZ(zIndex)
                 onDrop && onDrop(dropData)
                 clearDrag()
             }}

@@ -20,6 +20,7 @@ import {DNDProvider, Draggable, Drop} from "next-dnd"
     dragId="box"
     className?="box"
     disabled?={false}
+    zIndex?="initial"
     onDrag?={() => console.log("dragging")}
     onHover?={(dropId) => console.log(dropId)}
     onDrop?={(dropId) => console.log(dropId || "no drop target")}
