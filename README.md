@@ -1,18 +1,18 @@
-# next-dnd
+# ds-dnd
 dead simple drag/drop for nextjs, requires `framer-motion` 
 
 webpack:
 ```js
 // next-config.js
 
-const withDND = require('next-transpile-modules')(['next-dnd']);
+const withDND = require('next-transpile-modules')(['ds-dnd']);
 
 module.exports = withDND();
 ```
 
 usage:
 ```tsx
-import {DNDProvider, Draggable, Drop} from "next-dnd"
+import {DNDProvider, Draggable, Drop} from "ds-dnd"
 
 <DNDProvider>
 
