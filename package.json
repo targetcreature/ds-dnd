@@ -1,14 +1,8 @@
 {
-  "name": "next-dnd",
-  "version": "1.0.3",
-  "description": "dead simple drag/drop for nextjs, using `framer-motion`",
+  "name": "ds-dnd",
+  "version": "1.0.4",
+  "description": "dumb simple drag/drop for nextjs, using `framer-motion`",
   "main": "index.js",
-  "keywords": [
-    "react",
-    "nextjs",
-    "drag",
-    "drop"
-  ],
   "author": "targetcreature@gmail.com",
   "license": "ISC",
   "dependencies": {
