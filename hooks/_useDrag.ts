@@ -1,11 +1,12 @@
 import { useContext } from "react"
-import { _context, _setContext } from "./_context"
-import { _init, _IProps } from "./__init"
+import { _context, _setContext } from "../context"
+import { _init } from "../init"
+import { DNDProps } from "../_types"
 
-interface UProps extends _IProps {
-    setDrag: (data: _IProps["dragData"]) => void
+interface UProps extends DNDProps {
+    setDrag: (data: DNDProps["dragData"]) => void
     clearDrag: () => void
-    setHover: (data: _IProps["dropData"]) => void
+    setHover: (data: DNDProps["dropData"]) => void
     clearHover: () => void
 }
 

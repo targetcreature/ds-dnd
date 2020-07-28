@@ -1,10 +1,9 @@
 import { createContext, useState } from 'react'
-import { _init } from './__init'
+import { _init } from '../init'
+import { DNDProps } from '../_types'
 
-type Props = typeof _init
-
-export const _context = createContext<Props>(_init)
-export const _setContext = createContext<React.Dispatch<React.SetStateAction<Props>>>(null)
+export const _context = createContext<DNDProps>(_init)
+export const _setContext = createContext<React.Dispatch<React.SetStateAction<DNDProps>>>(null)
 
 export const _provider: React.FC<{}> = ({ children }) => {
     const [value, set] = useState(_init)

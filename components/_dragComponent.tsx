@@ -1,13 +1,13 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { _useDrag } from "./_useDrag"
-import { _IProps } from "./__init"
+import { DNDProps } from "../_types"
+import { _useDrag } from "../_useDrag"
 
 type Props = {
-    dragId: _IProps["dragData"]
+    dragId: DNDProps["dragData"]
     onDrag?: () => void
-    onDrop?: (cb: (data: _IProps["dropData"]) => void) => void
-    onHover?: (cb: (data: _IProps["dropData"]) => void) => void
+    onDrop?: (cb: (data: DNDProps["dropData"]) => void) => void
+    onHover?: (cb: (data: DNDProps["dropData"]) => void) => void
     className?: string
     disabled?: boolean
     zIndex?: string | number

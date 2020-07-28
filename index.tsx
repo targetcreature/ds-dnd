@@ -1,7 +1,7 @@
-import { _provider } from "./_context"
-import { _dragComponent } from "./_dragComponent"
-import { _dropComponent } from "./_dropComponent"
-import { _useDND } from "./_useDrag"
+import { _dragComponent } from "./components/_dragComponent"
+import { _dropComponent } from "./components/_dropComponent"
+import { _provider } from "./context"
+import { _useDND } from "./hooks/_useDrag"
 
 export { _provider as DNDProvider }
 export { _dragComponent as Draggable }
