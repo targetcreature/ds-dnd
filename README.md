@@ -1,5 +1,5 @@
 # ds-dnd
-dead simple drag/drop for nextjs, requires `framer-motion` 
+dumb simple drag/drop for nextjs, requires `framer-motion` 
 
 webpack:
 ```js
