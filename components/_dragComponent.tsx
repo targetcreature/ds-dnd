@@ -1,22 +1,9 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { DNDProps } from "../_types"
-import { _useDrag } from "../_useDrag"
+import { _useDrag } from "../hooks/_useDrag"
+import { DragProps } from "../_types"
 
-type Props = {
-    dragId: DNDProps["dragData"]
-    onDrag?: () => void
-    onDrop?: (cb: (data: DNDProps["dropData"]) => void) => void
-    onHover?: (cb: (data: DNDProps["dropData"]) => void) => void
-    className?: string
-    disabled?: boolean
-    zIndex?: string | number
-    dragMomentum?: boolean
-    motionProps?: {}
-    returnDelay?: number
-}
-
-export const _dragComponent: React.FC<Props> = ({
+export const _dragComponent: React.FC<DragProps> = ({
     dragId,
     className = "",
     disabled = false,
@@ -42,7 +29,7 @@ export const _dragComponent: React.FC<Props> = ({
     }, [dropData, dragData])
 
 
-    const [z, setZ] = useState<Props["zIndex"]>(zIndex)
+    const [z, setZ] = useState<DragProps["zIndex"]>(zIndex)
 
     return (
         <motion.div

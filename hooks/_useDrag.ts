@@ -1,16 +1,9 @@
 import { useContext } from "react"
 import { _context, _setContext } from "../context"
 import { _init } from "../init"
-import { DNDProps } from "../_types"
+import { UseDND } from "../_types"
 
-interface UProps extends DNDProps {
-    setDrag: (data: DNDProps["dragData"]) => void
-    clearDrag: () => void
-    setHover: (data: DNDProps["dropData"]) => void
-    clearHover: () => void
-}
-
-export const _useDrag = (): UProps => {
+export const _useDrag = (): UseDND => {
 
     const { dragData, dropData } = useContext(_context)
     const setState = useContext(_setContext)

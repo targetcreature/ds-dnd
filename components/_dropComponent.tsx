@@ -1,15 +1,7 @@
 import { _useDrag } from "../hooks/_useDrag"
-import { DNDProps } from "../_types"
+import { DropProps } from "../_types"
 
-type Props = {
-    dropId: DNDProps["dropData"]
-    className?: string
-    disabled?: boolean
-    onEnter?: (cb: (data: DNDProps["dragData"]) => void) => void
-    onExit?: (cb: (data: DNDProps["dragData"]) => void) => void
-}
-
-export const _dropComponent: React.FC<Props> = ({
+export const _dropComponent: React.FC<DropProps> = ({
     dropId,
     className = "",
     disabled = false,
