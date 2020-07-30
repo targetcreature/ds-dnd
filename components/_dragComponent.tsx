@@ -10,22 +10,19 @@ export const _dragComponent: React.FC<DragProps> = ({
     zIndex = "initial",
     dragMomentum = false,
     motionProps = {},
-    onDrag,
-    onDrop,
-    onHover,
+    onDrag = () => null,
+    onDrop = (d) => null,
+    onHover = () => null,
     children
 }) => {
 
     const { dragData, dropData, setDrag, clearDrag, clearHover } = _useDrag()
 
     useEffect(() => {
-        if (onHover) {
-            if (dragId === dragData) {
-                if (dropData) {
-                    onHover(dropData)
-                }
-            }
-        }
+        onHover
+            && dragId === dragData
+            && dropData
+            && onHover(dropData)
     }, [dropData, dragData])
 
 
@@ -50,7 +47,7 @@ export const _dragComponent: React.FC<DragProps> = ({
 
             onDragEnd={() => {
                 setZ(zIndex)
-                onDrop && onDrop(dropData)
+                onDrop(dropData)
                 clearDrag()
             }}
 
